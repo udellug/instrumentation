@@ -1,0 +1,6 @@
+benchmarking target/release/choose 3:5 -i test/long_long_long.txt
+time                 60.09 ms   (59.88 ms .. 60.46 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 59.88 ms   (59.70 ms .. 60.06 ms)
+std dev              330.3 μs   (243.5 μs .. 459.4 μs)
+
