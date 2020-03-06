@@ -22,21 +22,17 @@
 
 class: center, middle
 
-# Instrumentation; or, Making Choose Fast
+# Instrumentation; or, Making `choose` Fast
 
 ---
 
 # TOC
 
 - instrumentation
-  - my learning about it from contrast
-  - binary vs source
-  - simple java project?
-- `choose` explanation
+- `choose`
 - `perf`
 - `flamegraph`
 - `choose` case study
-  - examples galore
 
 ---
 
@@ -60,7 +56,7 @@ things [0]
 
 <img src="img/cs_logo.jpg" width="700">
 
-![New Relic logo](img/new_relic_logo.png)
+[![New Relic logo](img/new_relic_logo.png)](https://newrelic.com)
 
 ???
 
@@ -147,6 +143,40 @@ Tool to visualize profiled code [6]
 The x-axis shows "stack profile population", sorted alphabetically, i.e. the
 x-axis is NOT time. The y-axis shows stack depth.[7]
 
+---
+
+# A Case Study
+
+- [Rust regex
+documentation](https://docs.rs/regex/1.3.4/regex/#example-avoid-compiling-the-same-regex-in-a-loop)
+- [A
+diff](https://github.com/theryangeary/choose/commit/f722cbcbbb61ba46c5d6e63d543a834c65a51751?diff=split
+)
+
+![:scale 60%](img/09ddbb4.svg)
+![:scale 60%](img/f722cbc.svg)
+
+???
+- Early iteration of rust, just after achieving correctness
+- rust regex crate clearly says don't recompile regex, it's slow
+- but I did! and sure enough it was slow as hell
+---
+
+# Another Case Study
+![:scale 50%](img/ee8df85.svg)
+???
+Shows that a lot of time is being spent in anonymous iterator functions
+---
+# Another Case Study
+
+![https://github.com/theryangeary/choose/commit/3f1661f94919acf1744b9679773e6102eab6610c](img/latest_diff.png)
+???
+Zero cost abstractions is not the same as optimal algorithm!
+---
+
+# Another Case Study
+![:scale 50%](img/3f1661f.svg)
+???
 ---
 
 # In Conclusion
